@@ -39,10 +39,23 @@ jobs:
             echo "path=/$NAME" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: 计算公开站点 URL（SEO canonical / OG / sitemap）
+        id: siteurl
+        shell: bash
+        run: |
+          OWNER="${{ github.repository_owner }}"
+          NAME="${{ github.event.repository.name }}"
+          if [[ "$NAME" == *.github.io ]]; then
+            echo "url=https://${OWNER}.github.io" >> "$GITHUB_OUTPUT"
+          else
+            echo "url=https://${OWNER}.github.io/${NAME}" >> "$GITHUB_OUTPUT"
+          fi
+
       - run: npm ci
       - run: npm run build
         env:
           BASE_PATH: ${{ steps.base.outputs.path }}
+          NEXT_PUBLIC_SITE_URL: ${{ steps.siteurl.outputs.url }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

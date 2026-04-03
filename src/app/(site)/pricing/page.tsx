@@ -1,5 +1,13 @@
 import Link from "next/link";
 import { CheckIcon, MinusIcon } from "@/components/icons";
+import { buildSubpageMetadata } from "@/lib/seo";
+
+export const metadata = buildSubpageMetadata({
+  title: "定价方案",
+  description:
+    "简明透明的定价与功能对比，为不同规模团队提供合适方案。",
+  path: "/pricing",
+});
 
 const comparisonRows: {
   feature: string;
