@@ -1,10 +1,13 @@
-import { subscribeEmail } from "@/app/actions/subscribe";
+"use client";
 
 export function SubscribeForm() {
   return (
     <form
-      action={subscribeEmail}
       className="flex flex-col gap-3 sm:flex-row"
+      onSubmit={(e) => {
+        e.preventDefault();
+        // 静态部署无服务端；后续可接入邮件服务或第三方表单
+      }}
     >
       <input
         type="email"
