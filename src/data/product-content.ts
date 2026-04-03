@@ -2,6 +2,9 @@
 
 export const couplingRed = "#C41E3A";
 
+/** 金数据「联系我们」在线表单 */
+export const externalContactFormUrl = "https://jsj.top/f/fGsCL7";
+
 export const productHome = {
   heroBg:
     "https://storage.googleapis.com/uxpilot-auth.appspot.com/71bdf0b679-9ef3712e04cdf7481890.png",
@@ -44,33 +47,33 @@ export const productHome = {
   gallery: [
     {
       src: "https://images.unsplash.com/photo-1565439390118-bbf1a4510bc2?auto=format&fit=crop&q=80",
-      label: "Workshop View",
+      label: "车间实景",
     },
     {
       src: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80",
-      label: "Precision Machining",
+      label: "精密加工",
     },
     {
       src: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&q=80",
-      label: "Design Workstation",
+      label: "设计工位",
     },
   ],
   about: {
     title: "先进制造与研发",
     lead:
-      "Our modern facilities in Dalian are equipped with advanced CNC machinery and rigorous testing equipment.",
+      "大连现代化厂房配备先进数控加工设备与严格检测手段，保障产品品质。",
     bullets: [
       {
-        title: "Advanced R&D",
-        body: "Dedicated design workstations utilizing latest CAD/CAM software for continuous product innovation.",
+        title: "先进研发",
+        body: "专业设计工位，采用主流 CAD/CAM 软件，持续推动产品创新。",
       },
       {
-        title: "Precision Manufacturing",
-        body: "High-accuracy machining centers ensuring perfect tolerances for all internal components.",
+        title: "精密制造",
+        body: "高精度加工中心，保证各内部零部件的加工精度与装配质量。",
       },
       {
-        title: "Quality Assurance",
-        body: "Comprehensive testing protocols including dynamic balancing and pressure testing.",
+        title: "质量保障",
+        body: "涵盖动平衡、压力试验等在内的完整检测流程，确保出厂可靠。",
       },
     ],
   },
@@ -192,34 +195,4 @@ export const xianjuDetail = {
       caption: "技术研发中心",
     },
   ],
-};
-
-export const tiaosuDetail = {
-  title: "调速型液力偶合器",
-  tagline: "专业制造 卓越品质",
-  intro:
-    "专为工作机械精确调速而设计。在电机恒速运行条件下实现被驱动机械的无级调速，优化过程控制，在风机、泵类应用中显著节能，适用于需要频繁调速的工况。",
-  heroImage: productHome.products[0].image,
-  features: [
-    {
-      title: "无级调速",
-      body: "在电机转速不变的前提下，平滑调节输出转速，满足工艺对流量、压力的连续控制需求。",
-    },
-    {
-      title: "显著节能",
-      body: "通过转速匹配负载，避免阀门节流损失，在离心式风机、泵类负载中可降低运行能耗。",
-    },
-    {
-      title: "可靠过载保护",
-      body: "与限矩型相同的安全打滑特性，在异常工况下保护电机与传动系统。",
-    },
-  ],
-  series: [
-    { name: "CST 系列", desc: "调速型成套" },
-    { name: "YOT 系列", desc: "调速型偶合器" },
-    { name: "定制方案", desc: "按工况参数选型" },
-  ],
-  specNote:
-    "调速型产品规格与工况、转速范围、功率匹配强相关，以下为典型应用说明。具体选型与尺寸图请联系技术部门获取正式资料。",
-  gallery: xianjuDetail.gallery,
 };

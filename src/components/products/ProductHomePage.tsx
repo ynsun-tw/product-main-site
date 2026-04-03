@@ -149,7 +149,7 @@ export function ProductHomePage() {
             {productHome.about.title}
           </h3>
           <p className="mx-auto mb-12 max-w-3xl text-center text-sm text-gray-400">
-            State-of-the-Art Manufacturing & Design — {productHome.about.lead}
+            {productHome.about.lead}
           </p>
           <div className="grid gap-8 md:grid-cols-3">
             {productHome.about.bullets.map((b) => (
@@ -172,8 +172,8 @@ export function ProductHomePage() {
 
       <section id="gallery" className="scroll-mt-28 py-24">
         <div className="mx-auto max-w-[1440px] px-6">
-          <p className="mb-2 text-center text-xs uppercase tracking-widest text-gray-500">
-            Cross-Section Diagrams
+          <p className="mb-2 text-center text-xs tracking-widest text-gray-500">
+            剖面示意图
           </p>
           <h3 className="mb-12 text-center text-3xl font-bold text-white">
             制造与设计

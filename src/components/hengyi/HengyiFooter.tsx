@@ -28,32 +28,31 @@ export function HengyiFooter() {
                   大连恒忆偶合器有限公司
                 </h2>
                 <p className="text-xs text-gray-500">
-                  Dalian HengYi Fluid Coupling Co.,Ltd.
+                  液力偶合器研发与制造
                 </p>
               </div>
             </div>
             <p className="mb-6 text-sm leading-relaxed text-gray-400">
-              Energy Saving, Innovation, Development. Professional manufacturer
-              of variable speed and constant filling fluid couplings.
+              节能、创新、发展。专注调速型与限矩型液力偶合器研发制造，服务重工业动力传动与节能需求。
             </p>
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
-              Contact Us
+            <h3 className="mb-4 text-sm font-bold tracking-wider text-white">
+              联系我们
             </h3>
             <ul className="space-y-3 text-sm text-gray-400">
               <li>地址：大连市甘井子区辛寨子镇由家村工业园区</li>
-              <li>Dalian, Liaoning, China</li>
+              <li>中国辽宁省大连市</li>
               <li>
-                电话 (Tel):{" "}
+                电话：{" "}
                 <a href="tel:041139643700" className="hover:text-white">
                   0411-39643700
                 </a>
               </li>
-              <li>传真 (Fax): 0411-39643700</li>
+              <li>传真：0411-39643700</li>
               <li>
-                邮箱 (Email):{" "}
+                邮箱：{" "}
                 <a
                   href="mailto:dlhy0502@163.com"
                   className="hover:text-white"
@@ -87,13 +86,13 @@ export function HengyiFooter() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-gray-500 md:flex-row">
-          <p>© 2026 Dalian HengYi Fluid Coupling Co.,Ltd. All rights reserved.</p>
+          <p>© 2026 大连恒忆偶合器有限公司 保留所有权利。</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-gray-300">
-              Privacy Policy
+              隐私政策
             </Link>
             <Link href="/terms" className="hover:text-gray-300">
-              Terms of Service
+              服务条款
             </Link>
           </div>
         </div>

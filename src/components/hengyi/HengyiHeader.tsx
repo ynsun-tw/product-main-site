@@ -1,12 +1,16 @@
 import Link from "next/link";
-import { couplingRed } from "@/data/product-content";
+import { couplingRed, externalContactFormUrl } from "@/data/product-content";
 
 const navItems = [
-  { href: "/", label: "首页" },
-  { href: "/#products", label: "产品系列" },
-  { href: "/#gallery", label: "技术支持" },
-  { href: "/#about", label: "关于恒忆" },
-  { href: "/#contact", label: "联系我们" },
+  { href: "/", label: "首页", external: false },
+  { href: "/products/tiaosu", label: "调速型", external: false },
+  { href: "/products/xianju", label: "限矩型", external: false },
+  { href: "/#about", label: "关于我们", external: false },
+  {
+    href: externalContactFormUrl,
+    label: "联系我们",
+    external: true,
+  },
 ] as const;
 
 function HamburgerIcon() {
@@ -70,7 +74,7 @@ export function HengyiHeader() {
               大连恒忆偶合器有限公司
             </span>
             <span className="text-xs text-gray-400">
-              Dalian HengYi Fluid Coupling Co.,Ltd.
+              液力偶合器研发与制造
             </span>
           </div>
         </Link>
@@ -79,28 +83,41 @@ export function HengyiHeader() {
           className="hidden items-center gap-8 md:flex"
           aria-label="主导航"
         >
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              prefetch={false}
-              className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.external ? (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.label}
+                href={item.href}
+                prefetch={false}
+                className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
-            href="/#contact"
-            prefetch={false}
+          <a
+            href={externalContactFormUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden items-center gap-2 rounded px-6 py-2.5 text-sm font-bold text-white sm:inline-flex"
             style={{ backgroundColor: couplingRed }}
           >
             获取报价
             <ArrowRightIcon className="h-4 w-4" />
-          </Link>
+          </a>
 
           <details className="group relative md:hidden">
             <summary
@@ -114,24 +131,37 @@ export function HengyiHeader() {
                 className="flex flex-col gap-1 px-4 py-4"
                 aria-label="移动端主导航"
               >
-                {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    prefetch={false}
-                    className="py-2 text-sm font-medium text-gray-300 hover:text-white"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <Link
-                  href="/#contact"
-                  prefetch={false}
+                {navItems.map((item) =>
+                  item.external ? (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-2 text-sm font-medium text-gray-300 hover:text-white"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      prefetch={false}
+                      className="py-2 text-sm font-medium text-gray-300 hover:text-white"
+                    >
+                      {item.label}
+                    </Link>
+                  ),
+                )}
+                <a
+                  href={externalContactFormUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-2 py-3 text-center text-sm font-bold text-white"
                   style={{ backgroundColor: couplingRed }}
                 >
                   获取报价
-                </Link>
+                </a>
               </nav>
             </div>
           </details>

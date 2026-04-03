@@ -2,60 +2,61 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   couplingRed,
-  tiaosuDetail,
+  externalContactFormUrl,
   xianjuDetail,
 } from "@/data/product-content";
 
-type Variant = "tiaosu" | "xianju";
-
-export function ProductDetailPage({ variant }: { variant: Variant }) {
-  const isXianju = variant === "xianju";
-  const d = isXianju ? xianjuDetail : tiaosuDetail;
+export function ProductDetailPage() {
+  const d = xianjuDetail;
 
   return (
     <main className="bg-[#0a0a0a]">
       <section
         id="home"
-        className="relative scroll-mt-28 pt-36 lg:grid lg:min-h-[560px] lg:grid-cols-2 lg:items-center"
+        className="relative scroll-mt-28 flex min-h-[calc(100vh-7rem)] flex-col justify-center pt-28 pb-16 lg:min-h-[min(640px,calc(100vh-7rem))] lg:pb-20"
       >
-        <div className="relative z-10 px-6 py-12 lg:pl-12 lg:pr-8">
-          <p
-            className="mb-4 text-sm font-semibold uppercase tracking-wider"
-            style={{ color: couplingRed }}
-          >
-            {d.tagline}
-          </p>
-          <h1 className="mb-6 text-4xl font-bold text-white lg:text-5xl">
-            {d.title}
-          </h1>
-          <p className="mb-8 max-w-xl text-lg leading-relaxed text-gray-400">
-            {d.intro}
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#specs"
-              className="rounded px-6 py-3 text-sm font-bold text-white"
-              style={{ backgroundColor: couplingRed }}
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-12">
+          <div className="flex w-full max-w-xl flex-col">
+            <p
+              className="mb-4 text-sm font-semibold tracking-wider"
+              style={{ color: couplingRed }}
             >
-              查看技术参数
-            </a>
-            <Link
-              href="/#contact"
-              className="rounded border border-white/20 px-6 py-3 text-sm font-bold text-white hover:bg-white/5"
-            >
-              立即咨询
-            </Link>
+              {d.tagline}
+            </p>
+            <h1 className="mb-6 text-4xl font-bold text-white lg:text-5xl">
+              {d.title}
+            </h1>
+            <p className="mb-8 max-w-xl text-lg leading-relaxed text-gray-400">
+              {d.intro}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#specs"
+                className="rounded px-6 py-3 text-sm font-bold text-white"
+                style={{ backgroundColor: couplingRed }}
+              >
+                查看技术参数
+              </a>
+              <a
+                href={externalContactFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded border border-white/20 px-6 py-3 text-sm font-bold text-white hover:bg-white/5"
+              >
+                立即咨询
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="relative h-[320px] lg:h-full lg:min-h-[560px]">
-          <Image
-            src={d.heroImage}
-            alt={d.title}
-            fill
-            className="object-contain object-center lg:object-right"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
-          />
+          <div className="relative aspect-[4/3] w-full max-w-md lg:max-w-lg">
+            <Image
+              src={d.heroImage}
+              alt={d.title}
+              fill
+              className="object-contain object-center"
+              sizes="(max-width: 1024px) 100vw, 46vw"
+              priority
+            />
+          </div>
         </div>
       </section>
 
@@ -105,8 +106,7 @@ export function ProductDetailPage({ variant }: { variant: Variant }) {
             技术参数
           </h2>
 
-          {isXianju ? (
-            <>
+          <>
               <div className="mb-12 grid gap-12 lg:grid-cols-2">
                 <div>
                   <h3 className="mb-4 text-lg font-semibold text-white">
@@ -142,8 +142,8 @@ export function ProductDetailPage({ variant }: { variant: Variant }) {
                   <thead>
                     <tr className="border-b border-white/10 bg-white/5">
                       <th className="px-3 py-3">型号</th>
-                      <th className="px-3 py-3">Lmin</th>
-                      <th className="px-3 py-3">D</th>
+                      <th className="px-3 py-3">最小长度</th>
+                      <th className="px-3 py-3">外径 D</th>
                       <th className="px-3 py-3" colSpan={2}>
                         输入端
                       </th>
@@ -160,12 +160,12 @@ export function ProductDetailPage({ variant }: { variant: Variant }) {
                       <th />
                       <th />
                       <th />
-                      <th>d1max</th>
-                      <th>H1max</th>
-                      <th>d2max</th>
-                      <th>H2max</th>
-                      <th>max</th>
-                      <th>min</th>
+                      <th>d1 最大</th>
+                      <th>H1 最大</th>
+                      <th>d2 最大</th>
+                      <th>H2 最大</th>
+                      <th>最大</th>
+                      <th>最小</th>
                       <th />
                       <th />
                     </tr>
@@ -198,11 +198,6 @@ export function ProductDetailPage({ variant }: { variant: Variant }) {
                 * 注：表中数据仅供参考，具体尺寸请以实际图纸为准。
               </p>
             </>
-          ) : (
-            <p className="mx-auto max-w-3xl text-center text-lg leading-relaxed text-gray-400">
-              {tiaosuDetail.specNote}
-            </p>
-          )}
         </div>
       </section>
 

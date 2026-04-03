@@ -16,7 +16,7 @@ export function SubscribeForm() {
       />
       <button
         type="submit"
-        className="shrink-0 bg-accent px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#E56000]"
+        className="shrink-0 bg-zinc-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-500"
       >
         立即订阅
       </button>
