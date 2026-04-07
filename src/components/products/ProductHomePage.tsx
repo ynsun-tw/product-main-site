@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { formatProductModelBadge } from "./YoxlTvalMarks";
 import { productHome, couplingRed } from "@/data/product-content";
 
 export function ProductHomePage() {
@@ -124,7 +125,7 @@ export function ProductHomePage() {
                             key={m}
                             className="bg-white/5 px-2 py-0.5 text-xs text-gray-400"
                           >
-                            {m}
+                            {formatProductModelBadge(m)}
                           </span>
                         ))}
                       </div>
