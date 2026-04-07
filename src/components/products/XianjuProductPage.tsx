@@ -61,8 +61,6 @@ export function XianjuProductPage() {
         </div>
       </section>
 
-      <XianjuSpecSelectionSection />
-
       <section id="features" className="scroll-mt-28 border-t border-white/10 py-20">
         <div className="mx-auto max-w-[1440px] px-6">
           <h2 className="mb-12 text-center text-3xl font-bold text-white">
@@ -106,6 +104,8 @@ export function XianjuProductPage() {
           </div>
         </div>
       </section>
+
+      <XianjuSpecSelectionSection />
 
       <section id="gallery" className="scroll-mt-28 border-t border-white/10 py-20">
         <div className="mx-auto max-w-[1440px] px-6">
