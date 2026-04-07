@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import type { StaticImageData } from "next/image";
 import { useState } from "react";
 import { couplingRed } from "@/data/product-content";
 import {
@@ -30,6 +31,22 @@ import {
   TvalMark,
   YoxlMark,
 } from "./YoxlTvalMarks";
+import imgYox from "./YOX.png";
+import imgYoxe from "./YOXE.png";
+import imgYoxl from "./YOXL.png";
+import imgYoxzl from "./YOXzL.png";
+
+/** 型号切换时展示的图纸（与上方分类对应） */
+const specDrawingByCategory: Record<
+  XianjuSpecCategoryId,
+  { src: StaticImageData; title: string }
+> = {
+  water: { src: imgYox, title: "YOXs、TVAs型（水介质）" },
+  "yox-tva": { src: imgYox, title: "YOX、TVA型" },
+  "yoxl-tval": { src: imgYoxl, title: "YOXL、TVAL型" },
+  yoxzl: { src: imgYoxzl, title: "YOXZL、YOXIIz型" },
+  "yoxe-tvae": { src: imgYoxe, title: "YOXE、TVAE型" },
+};
 
 /** 参数表外框：圆角、边界与轻微内高光，便于和背景区分 */
 const tableShell =
@@ -49,6 +66,7 @@ const thSub = "px-3 py-2 text-xs font-medium text-gray-400";
 
 export function XianjuSpecSelectionSection() {
   const [active, setActive] = useState<XianjuSpecCategoryId>("water");
+  const drawing = specDrawingByCategory[active];
 
   return (
     <section id="specs" className="scroll-mt-28 border-t border-white/10 py-20">
@@ -193,6 +211,21 @@ export function XianjuSpecSelectionSection() {
               </button>
             );
           })}
+        </div>
+
+        <div className="mb-10">
+          <p className="mb-3 text-center text-sm font-medium text-gray-400">
+            {drawing.title} · 结构示意图
+          </p>
+          <div className="relative mx-auto aspect-[16/10] w-full max-w-4xl overflow-hidden rounded-xl border border-white/15 bg-[#0c0c0c] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+            <Image
+              src={drawing.src}
+              alt={`${drawing.title}结构示意图`}
+              fill
+              className="object-contain p-3 sm:p-5"
+              sizes="(max-width: 896px) 100vw, 896px"
+            />
+          </div>
         </div>
 
         {active === "water" && (
