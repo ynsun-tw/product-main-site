@@ -23,9 +23,6 @@ export const tiaosuAdvantages = [
   },
 ];
 
-/** 型号说明附图：代号分段示意（public/types.png） */
-export const modelTypesDiagramImage = "/types.png";
-
 /** 型号说明：YO - T - D/G/F - 规格 */
 export const modelCodeLegend = [
   { code: "YO", desc: "液力偶合器" },
@@ -39,8 +36,6 @@ export const modelCodeLegend = [
 ];
 
 export const structureSection = {
-  /** 调速型液力偶合器内部结构剖视图（本地资源 public/structure.png） */
-  crossSectionImage: "/structure.png",
   companionTitle: "配套一览表",
   companionRows: [
     { item: "电动执行器", yotdg: "标准配备", yotf: "用户选配" },

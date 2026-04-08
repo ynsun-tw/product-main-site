@@ -4,10 +4,14 @@ export const SITE_NAME = "大连恒亿偶合器有限公司";
 
 export const SITE_SHORT_NAME = "恒亿偶合器";
 
-/** 站点 Logo（`public/logo-hengyi.png`，由品牌 PSD 导出） */
+/**
+ * 全站 Logo / favicon 唯一文件：`public/logo-hengyi.png`。
+ * 使用以 `/` 开头的路径时，Next 在配置了 `basePath` 时会自动加前缀。
+ */
 export const SITE_LOGO_PATH = "/logo-hengyi.png";
 
-export function getSiteLogoUrl(): string {
+/** JSON-LD 等需要的 Logo 绝对 URL（与 `NEXT_PUBLIC_SITE_URL` 一致，已含 GitHub Pages 子路径） */
+export function getSiteLogoAbsoluteUrl(): string {
   return `${getSiteUrl()}${SITE_LOGO_PATH}`;
 }
 

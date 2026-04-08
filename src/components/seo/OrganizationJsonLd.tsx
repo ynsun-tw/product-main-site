@@ -1,4 +1,4 @@
-import { getSiteLogoUrl, getSiteUrl, SITE_NAME } from "@/lib/seo";
+import { getSiteLogoAbsoluteUrl, getSiteUrl, SITE_NAME } from "@/lib/seo";
 
 /** Organization + WebSite 结构化数据（JSON-LD） */
 export function OrganizationJsonLd() {
@@ -13,7 +13,7 @@ export function OrganizationJsonLd() {
       url,
       logo: {
         "@type": "ImageObject",
-        url: getSiteLogoUrl(),
+        url: getSiteLogoAbsoluteUrl(),
       },
       description:
         "调速型、限矩型液力偶合器研发与制造，为重工业提供动力传输、过载保护与节能解决方案。",

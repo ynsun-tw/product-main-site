@@ -4,12 +4,13 @@ import type { ReactNode } from "react";
 import { couplingRed, externalContactFormUrl } from "@/data/product-content";
 import {
   modelCodeLegend,
-  modelTypesDiagramImage,
   structureSection,
   tiaosuAdvantages,
   tiaosuHero,
 } from "@/data/tiaosu-page";
 import { TiaosuTypicalModelsSection } from "./TiaosuTypicalModelsSection";
+import imgStructure from "./structure.png";
+import imgTypesDiagram from "./types.png";
 
 function SectionTitle({
   children,
@@ -125,7 +126,7 @@ export function TiaosuProductPage() {
             <div className="relative min-w-0 border border-white/10 bg-black/30">
               <div className="relative h-[min(52vw,420px)] w-full min-h-[300px] sm:min-h-[380px] lg:h-[min(42vw,520px)] lg:min-h-[440px]">
                 <Image
-                  src={modelTypesDiagramImage}
+                  src={imgTypesDiagram}
                   alt="型号说明：液力偶合器型号代号与分段含义"
                   fill
                   className="object-contain object-left p-1.5 sm:p-2"
@@ -167,7 +168,7 @@ export function TiaosuProductPage() {
           <div className="relative mx-auto mb-16 max-w-4xl border border-white/10 bg-black/30">
             <div className="relative aspect-[16/10] w-full">
               <Image
-                src={structureSection.crossSectionImage}
+                src={imgStructure}
                 alt="调速型液力偶合器内部结构剖视"
                 fill
                 className="object-contain p-4"

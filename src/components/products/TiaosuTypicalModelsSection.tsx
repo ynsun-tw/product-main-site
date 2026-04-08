@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { useState } from "react";
 import { couplingRed } from "@/data/product-content";
 import {
@@ -21,34 +21,39 @@ import {
   YOTGR_SPEC_HEADERS,
   YOTGR_SPEC_ROWS,
 } from "@/data/tiaosu-yot-spec-tables";
+import imgYotd from "./YOTD.png";
+import imgYotf from "./YOTF.png";
+import imgYotfCl from "./YOTFXXXCL.png";
+import imgYotg from "./YOTG.png";
+import imgYotgr from "./YOTGR.png";
 
-/** public/ 下 YOT 系列示意图，与型号切换一一对应 */
+/** YOT 系列示意图（与限矩型页一致：组件内 import，兼容 basePath） */
 const SERIES_DRAWING_BY_TAB: Partial<
-  Record<TiaosuTypicalModelId, { src: string; alt: string }>
+  Record<TiaosuTypicalModelId, { src: StaticImageData; alt: string }>
 > = {
   "model-yotd": {
-    src: "/YOTD.png",
+    src: imgYotd,
     alt: "YOTD型调速型液力偶合器外形、安装尺寸及选型曲线",
   },
   "model-yotg": {
-    src: "/YOTG.png",
+    src: imgYotg,
     alt: "YOTG型调速型液力偶合器外形、安装尺寸及选型曲线",
   },
   "model-yotgr": {
-    src: "/YOTGR.png",
+    src: imgYotgr,
     alt: "YOTG…R型调速型液力偶合器外形、安装尺寸及选型曲线",
   },
   "model-yotf": {
-    src: "/YOTF.png",
+    src: imgYotf,
     alt: "YOTF型调速型液力偶合器外形、安装尺寸及选型曲线",
   },
   "model-yotf-cl": {
-    src: "/YOTFXXXCL.png",
+    src: imgYotfCl,
     alt: "YOTFxxxCL型调速型液力偶合器外形、安装尺寸及选型曲线",
   },
 };
 
-function SeriesDrawing({ src, alt }: { src: string; alt: string }) {
+function SeriesDrawing({ src, alt }: { src: StaticImageData; alt: string }) {
   return (
     <div className="mb-8">
       <p className="mb-3 text-center text-sm text-gray-500">结构及选型示意图</p>
