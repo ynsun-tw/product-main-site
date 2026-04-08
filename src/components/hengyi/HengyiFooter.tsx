@@ -37,22 +37,22 @@ export function HengyiFooter() {
               联系我们
             </h3>
             <ul className="space-y-3 text-sm text-gray-400">
-              <li>地址：大连市甘井子区辛寨子镇由家村工业园区</li>
-              <li>中国辽宁省大连市</li>
+              <li>地址：甘井子区桧柏路251号</li>
+              <li>中国辽宁省大连市</li>  
               <li>
                 电话：{" "}
-                <a href="tel:041139643700" className="hover:text-white">
-                  0411-39643700
+                <a href="tel:13109834507" className="hover:text-white">
+                13109834507
                 </a>
               </li>
-              <li>传真：0411-39643700</li>
+              <li>传真：0411-86860650</li>
               <li>
                 邮箱：{" "}
                 <a
-                  href="mailto:dlhy0502@163.com"
+                  href="mailto:1054430872@qq.com"
                   className="hover:text-white"
                 >
-                  dlhy0502@163.com
+                  1054430872@qq.com
                 </a>
               </li>
             </ul>
