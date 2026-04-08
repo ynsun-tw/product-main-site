@@ -1,6 +1,6 @@
 import Link from "next/link";
+import { CompanyLogoMark } from "@/components/hengyi/CompanyLogoMark";
 import { SubscribeForm } from "@/components/hengyi/SubscribeForm";
-import { couplingRed } from "@/data/product-content";
 
 const productLinks = [
   { label: "调速型液力偶合器", href: "/products/tiaosu" },
@@ -17,15 +17,10 @@ export function HengyiFooter() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 xl:grid-cols-4">
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <div
-                className="flex h-10 w-10 items-center justify-center text-sm font-bold text-white"
-                style={{ backgroundColor: couplingRed }}
-              >
-                恒忆
-              </div>
+              <CompanyLogoMark size="sm" className="h-10 w-10 shrink-0" />
               <div>
                 <h2 className="text-lg font-bold text-white">
-                  大连恒忆偶合器有限公司
+                  大连恒亿偶合器有限公司
                 </h2>
                 <p className="text-xs text-gray-500">
                   液力偶合器研发与制造
@@ -86,7 +81,7 @@ export function HengyiFooter() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-gray-500 md:flex-row">
-          <p>© 2026 大连恒忆偶合器有限公司 保留所有权利。</p>
+          <p>© 2026 大连恒亿偶合器有限公司 保留所有权利。</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-gray-300">
               隐私政策

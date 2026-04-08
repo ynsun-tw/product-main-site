@@ -1,4 +1,4 @@
-import { getSiteUrl, SITE_NAME } from "@/lib/seo";
+import { getSiteLogoUrl, getSiteUrl, SITE_NAME } from "@/lib/seo";
 
 /** Organization + WebSite 结构化数据（JSON-LD） */
 export function OrganizationJsonLd() {
@@ -9,11 +9,11 @@ export function OrganizationJsonLd() {
       "@type": "Organization",
       "@id": `${url}/#organization`,
       name: SITE_NAME,
-      alternateName: "恒忆偶合器",
+      alternateName: "恒亿偶合器",
       url,
       logo: {
         "@type": "ImageObject",
-        url: "https://storage.googleapis.com/uxpilot-auth.appspot.com/71bdf0b679-9ef3712e04cdf7481890.png",
+        url: getSiteLogoUrl(),
       },
       description:
         "调速型、限矩型液力偶合器研发与制造，为重工业提供动力传输、过载保护与节能解决方案。",

@@ -1,21 +1,28 @@
 import type { Metadata } from "next";
 
-export const SITE_NAME = "大连恒忆偶合器有限公司";
+export const SITE_NAME = "大连恒亿偶合器有限公司";
 
-export const SITE_SHORT_NAME = "恒忆偶合器";
+export const SITE_SHORT_NAME = "恒亿偶合器";
+
+/** 站点 Logo（`public/logo-hengyi.png`，由品牌 PSD 导出） */
+export const SITE_LOGO_PATH = "/logo-hengyi.png";
+
+export function getSiteLogoUrl(): string {
+  return `${getSiteUrl()}${SITE_LOGO_PATH}`;
+}
 
 /** 默认分享图（绝对 URL 在运行时由 metadataBase 拼接，此处为路径或站外稳定地址） */
 export const DEFAULT_OG_IMAGE =
   "https://storage.googleapis.com/uxpilot-auth.appspot.com/71bdf0b679-9ef3712e04cdf7481890.png";
 
 export const SITE_DEFAULT_DESCRIPTION =
-  "大连恒忆偶合器有限公司——调速型、限矩型液力偶合器研发与制造，为重工业提供动力传输、过载保护与节能解决方案。";
+  "大连恒亿偶合器有限公司——调速型、限矩型液力偶合器研发与制造，为重工业提供动力传输、过载保护与节能解决方案。";
 
 export const SITE_KEYWORDS = [
   "液力偶合器",
   "调速型液力偶合器",
   "限矩型液力偶合器",
-  "大连恒忆",
+  "大连恒亿",
   "液力耦合器",
   "软启动",
   "过载保护",

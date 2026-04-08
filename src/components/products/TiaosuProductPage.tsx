@@ -4,15 +4,12 @@ import type { ReactNode } from "react";
 import { couplingRed, externalContactFormUrl } from "@/data/product-content";
 import {
   modelCodeLegend,
+  modelTypesDiagramImage,
   structureSection,
   tiaosuAdvantages,
   tiaosuHero,
-  yocjBlock,
-  yoczBlock,
-  yotdBlock,
-  yotgBlock,
-  yotgrBlock,
 } from "@/data/tiaosu-page";
+import { TiaosuTypicalModelsSection } from "./TiaosuTypicalModelsSection";
 
 function SectionTitle({
   children,
@@ -124,32 +121,42 @@ export function TiaosuProductPage() {
       >
         <div className="mx-auto max-w-[1440px] px-6">
           <SectionTitle>型号说明</SectionTitle>
-          <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-2 text-lg font-medium text-white md:gap-3">
-            {modelCodeLegend.map((item, i) => (
-              <span key={item.code} className="flex items-center gap-2">
-                {i > 0 ? (
-                  <span className="text-gray-600" aria-hidden>
-                    —
-                  </span>
-                ) : null}
-                <span
-                  className="rounded px-3 py-1 font-bold"
-                  style={{
-                    backgroundColor: `${couplingRed}22`,
-                    color: couplingRed,
-                  }}
-                >
-                  {item.code}
-                </span>
-                <span className="text-sm text-gray-400 md:text-base">
-                  {item.desc}
-                </span>
-              </span>
-            ))}
+          <div className="mx-auto grid w-full max-w-[min(100%,1360px)] grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] lg:gap-14">
+            <div className="relative min-w-0 border border-white/10 bg-black/30">
+              <div className="relative h-[min(52vw,420px)] w-full min-h-[300px] sm:min-h-[380px] lg:h-[min(42vw,520px)] lg:min-h-[440px]">
+                <Image
+                  src={modelTypesDiagramImage}
+                  alt="型号说明：液力偶合器型号代号与分段含义"
+                  fill
+                  className="object-contain object-left p-1.5 sm:p-2"
+                  sizes="(max-width: 1024px) 100vw, min(820px, 58vw)"
+                />
+              </div>
+            </div>
+            <div className="flex min-w-0 flex-col gap-8 lg:justify-center lg:py-1">
+              <ul className="space-y-3">
+                {modelCodeLegend.map((item) => (
+                  <li key={item.code} className="flex items-start gap-3">
+                    <span
+                      className="shrink-0 rounded px-2.5 py-1 text-sm font-bold"
+                      style={{
+                        backgroundColor: `${couplingRed}22`,
+                        color: couplingRed,
+                      }}
+                    >
+                      {item.code}
+                    </span>
+                    <span className="text-sm leading-relaxed text-gray-400">
+                      {item.desc}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm leading-relaxed text-gray-500">
+                完整型号由「YO - T - D/G/F - … - 规格」等段组成，具体订货代号请以技术协议与图纸为准。
+              </p>
+            </div>
           </div>
-          <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-gray-500">
-            完整型号由「YO - T - D/G/F - … - 规格」等段组成，具体订货代号请以技术协议与图纸为准。
-          </p>
         </div>
       </section>
 
@@ -197,270 +204,7 @@ export function TiaosuProductPage() {
         </div>
       </section>
 
-      {/* 典型型号 */}
-      <section id="specs" className="scroll-mt-28 border-t border-white/10 py-20">
-        <div className="mx-auto max-w-[1440px] px-6">
-          <SectionTitle>典型型号展示</SectionTitle>
-
-          {/* YOTD */}
-          <div className="mb-20">
-            <h3 className="mb-2 text-xl font-bold text-white">{yotdBlock.title}</h3>
-            <p className="mb-6 text-gray-400">{yotdBlock.subtitle}</p>
-            <div className="mb-8 grid gap-8 lg:grid-cols-2 lg:items-start">
-              <div className="relative aspect-[4/3] border border-white/10 bg-black/20">
-                <Image
-                  src={yotdBlock.image}
-                  alt={yotdBlock.title}
-                  fill
-                  className="object-contain p-4"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[360px] border border-white/10 text-sm">
-                  <thead>
-                    <tr className="bg-white/5 text-gray-300">
-                      <th className="px-3 py-2 text-left">型号</th>
-                      <th className="px-3 py-2">输入转速 (转/分)</th>
-                      <th className="px-3 py-2">传递功率（千瓦）</th>
-                      <th className="px-3 py-2">重量（千克）</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {yotdBlock.table.map((row) => (
-                      <tr key={row.model} className="border-t border-white/10">
-                        <td className="px-3 py-2 font-medium text-white">
-                          {row.model}
-                        </td>
-                        <td className="px-3 py-2 text-center text-gray-400">
-                          {row.speed}
-                        </td>
-                        <td className="px-3 py-2 text-center text-gray-400">
-                          {row.power}
-                        </td>
-                        <td className="px-3 py-2 text-center text-gray-400">
-                          {row.weight}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          {/* YOTG */}
-          <div className="mb-20">
-            <h3 className="mb-2 text-xl font-bold text-white">{yotgBlock.title}</h3>
-            <p className="mb-6 text-gray-400">{yotgBlock.subtitle}</p>
-            <div className="mb-8 grid gap-8 lg:grid-cols-2 lg:items-start">
-              <div className="relative aspect-[4/3] border border-white/10 bg-black/20">
-                <Image
-                  src={yotgBlock.image}
-                  alt={yotgBlock.title}
-                  fill
-                  className="object-contain p-4"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[360px] border border-white/10 text-sm">
-                  <thead>
-                    <tr className="bg-white/5 text-gray-300">
-                      <th className="px-3 py-2 text-left">型号</th>
-                      <th className="px-3 py-2">输入转速 (转/分)</th>
-                      <th className="px-3 py-2">传递功率（千瓦）</th>
-                      <th className="px-3 py-2">重量（千克）</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {yotgBlock.table.map((row) => (
-                      <tr key={row.model} className="border-t border-white/10">
-                        <td className="px-3 py-2 font-medium text-white">
-                          {row.model}
-                        </td>
-                        <td className="px-3 py-2 text-center text-gray-400">
-                          {row.speed}
-                        </td>
-                        <td className="px-3 py-2 text-center text-gray-400">
-                          {row.power}
-                        </td>
-                        <td className="px-3 py-2 text-center text-gray-400">
-                          {row.weight}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          {/* YOTGR */}
-          <div className="mb-20">
-            <h3 className="mb-2 text-xl font-bold text-white">{yotgrBlock.title}</h3>
-            <p className="mb-6 text-gray-400">{yotgrBlock.subtitle}</p>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[480px] border border-white/10 text-sm">
-                <thead>
-                  <tr className="bg-white/5 text-gray-300">
-                    <th className="px-3 py-2 text-left">型号</th>
-                    <th className="px-3 py-2" colSpan={2}>
-                      传递功率（千瓦）
-                    </th>
-                  </tr>
-                  <tr className="border-b border-white/10 bg-black/20 text-xs text-gray-500">
-                    <th />
-                    <th className="px-3 py-1 font-normal">1000 转/分</th>
-                    <th className="px-3 py-1 font-normal">1500 转/分</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {yotgrBlock.table.map((row) => (
-                    <tr key={row.model} className="border-t border-white/10">
-                      <td className="px-3 py-2 font-medium text-white">
-                        {row.model}
-                      </td>
-                      {"p750" in row ? (
-                        <>
-                          <td className="px-3 py-2 text-center text-gray-400">
-                            {row.p750}
-                            <span className="ml-1 text-xs text-gray-600">
-                              (750)
-                            </span>
-                          </td>
-                          <td className="px-3 py-2 text-center text-gray-400">
-                            {row.p1000}
-                            <span className="ml-1 text-xs text-gray-600">
-                              (1000)
-                            </span>
-                          </td>
-                        </>
-                      ) : (
-                        <>
-                          <td className="px-3 py-2 text-center text-gray-400">
-                            {row.p1000}
-                          </td>
-                          <td className="px-3 py-2 text-center text-gray-400">
-                            {row.p1500}
-                          </td>
-                        </>
-                      )}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <ul className="mt-6 space-y-2 text-xs text-gray-500">
-              {yotgrBlock.footnotes.map((f) => (
-                <li key={f.slice(0, 40)}>{f}</li>
-              ))}
-            </ul>
-          </div>
-
-          {/* YOCz */}
-          <div className="mb-20">
-            <h3 className="mb-2 text-xl font-bold text-white">{yoczBlock.title}</h3>
-            <p className="text-gray-500">{yoczBlock.subtitle}</p>
-            <p className="mb-6 text-gray-400">{yoczBlock.description}</p>
-            <div className="relative mb-8 aspect-[16/9] w-full max-w-3xl border border-white/10 bg-black/20">
-              <Image
-                src={yoczBlock.image}
-                alt="YOCz 型传动装置"
-                fill
-                className="object-contain p-4"
-                sizes="896px"
-              />
-            </div>
-            <ul className="mb-8 space-y-2 text-sm text-gray-400">
-              {yoczBlock.notes.map((n) => (
-                <li key={n.slice(0, 50)}>{n}</li>
-              ))}
-            </ul>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[640px] border border-white/10 text-sm">
-                <thead>
-                  <tr className="bg-white/5 text-gray-300">
-                    <th className="px-3 py-2 text-left">型号</th>
-                    <th className="px-3 py-2">输入转速 (转/分)</th>
-                    <th className="px-3 py-2">最大传动比</th>
-                    <th className="px-3 py-2">A</th>
-                    <th className="px-3 py-2">B</th>
-                    <th className="px-3 py-2">C</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {yoczBlock.table.map((row) => (
-                    <tr key={row.model} className="border-t border-white/10">
-                      <td className="px-3 py-2 font-medium text-white">{row.model}</td>
-                      <td className="px-3 py-2 text-center text-gray-400">
-                        {row.inputRpm}
-                      </td>
-                      <td className="px-3 py-2 text-center text-gray-400">
-                        {row.ratio}
-                      </td>
-                      <td className="px-3 py-2 text-center text-gray-400">{row.a}</td>
-                      <td className="px-3 py-2 text-center text-gray-400">{row.b}</td>
-                      <td className="px-3 py-2 text-center text-gray-400">{row.c}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* YOCj */}
-          <div className="mb-8">
-            <h3 className="mb-2 text-xl font-bold text-white">{yocjBlock.title}</h3>
-            <p className="text-gray-500">{yocjBlock.subtitle}</p>
-            <p className="mb-6 text-gray-400">{yocjBlock.description}</p>
-            <div className="mb-8 grid gap-4 md:grid-cols-2">
-              {yocjBlock.images.map((src) => (
-                <div
-                  key={src}
-                  className="relative aspect-[4/3] border border-white/10 bg-black/20"
-                >
-                  <Image
-                    src={src}
-                    alt="YOCj 型传动装置"
-                    fill
-                    className="object-contain p-4"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[720px] border border-white/10 text-sm">
-                <thead>
-                  <tr className="bg-white/5 text-gray-300">
-                    <th className="px-2 py-2 text-left">型号</th>
-                    <th className="px-2 py-2">输入转速 (转/分)</th>
-                    <th className="px-2 py-2">传递功率（千瓦）</th>
-                    <th className="px-2 py-2">最大传动比</th>
-                    <th className="px-2 py-2">长度 L</th>
-                    <th className="px-2 py-2">高度 H</th>
-                    <th className="px-2 py-2">宽度 W</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {yocjBlock.table.map((row) => (
-                    <tr key={row.model} className="border-t border-white/10">
-                      <td className="px-2 py-2 font-medium text-white">{row.model}</td>
-                      <td className="px-2 py-2 text-center text-gray-400">{row.n}</td>
-                      <td className="px-2 py-2 text-center text-gray-400">{row.power}</td>
-                      <td className="px-2 py-2 text-center text-gray-400">{row.ratio}</td>
-                      <td className="px-2 py-2 text-center text-gray-400">{row.l}</td>
-                      <td className="px-2 py-2 text-center text-gray-400">{row.h}</td>
-                      <td className="px-2 py-2 text-center text-gray-400">{row.w}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TiaosuTypicalModelsSection />
 
       <div className="border-t border-white/10 py-12 text-center">
         <Link

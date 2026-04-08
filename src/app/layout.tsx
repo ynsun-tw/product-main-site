@@ -4,6 +4,7 @@ import {
   getMetadataBase,
   SITE_DEFAULT_DESCRIPTION,
   SITE_KEYWORDS,
+  SITE_LOGO_PATH,
   SITE_NAME,
 } from "@/lib/seo";
 import "./globals.css";
@@ -31,6 +32,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true },
+  },
+  icons: {
+    icon: SITE_LOGO_PATH,
+    apple: SITE_LOGO_PATH,
   },
   ...(googleVerification || baiduVerification
     ? {

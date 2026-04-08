@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CompanyLogoMark } from "@/components/hengyi/CompanyLogoMark";
 import { couplingRed, externalContactFormUrl } from "@/data/product-content";
 
 const navItems = [
@@ -63,15 +64,10 @@ export function HengyiHeader() {
           className="flex shrink-0 items-center gap-3"
           prefetch={false}
         >
-          <div
-            className="flex h-12 w-12 items-center justify-center rounded text-xl font-bold text-white"
-            style={{ backgroundColor: couplingRed }}
-          >
-            恒忆
-          </div>
+          <CompanyLogoMark size="md" className="h-12 w-12 shrink-0" priority />
           <div className="hidden flex-col sm:flex">
             <span className="text-lg font-bold leading-tight text-white">
-              大连恒忆偶合器有限公司
+              大连恒亿偶合器有限公司
             </span>
             <span className="text-xs text-gray-400">
               液力偶合器研发与制造

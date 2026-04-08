@@ -21,7 +21,7 @@ const config: Config = {
           muted: "#3D3D3D",
           "700": "#1F1F1F",
         },
-        /** 恒忆 platform / industrial UI */
+        /** 恒亿 platform / industrial UI */
         industrial: {
           50: "#F7FAFC",
           300: "#CBD5E0",

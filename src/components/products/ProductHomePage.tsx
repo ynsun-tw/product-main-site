@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CompanyLogoMark } from "@/components/hengyi/CompanyLogoMark";
 import { formatProductModelBadge } from "./YoxlTvalMarks";
 import { productHome, couplingRed } from "@/data/product-content";
 
@@ -36,10 +37,13 @@ export function ProductHomePage() {
                 高精度工程技术
               </span>
             </div>
-            <h2 className="mb-2 text-5xl font-bold leading-tight text-white lg:text-6xl">
-              大连恒忆偶合器
-              <span style={{ color: couplingRed }}>有限公司</span>
-            </h2>
+            <div className="mb-4 flex flex-wrap items-center gap-4">
+              <CompanyLogoMark size="xl" className="h-20 w-20 md:h-24 md:w-24" />
+              <h2 className="text-5xl font-bold leading-tight text-white lg:text-6xl">
+                大连恒亿偶合器
+                <span style={{ color: couplingRed }}>有限公司</span>
+              </h2>
+            </div>
             <p className="mb-4 text-sm tracking-widest text-gray-400">
               节能·创新·发展
             </p>

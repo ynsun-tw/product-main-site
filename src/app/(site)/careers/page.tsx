@@ -3,7 +3,7 @@ import { buildSubpageMetadata } from "@/lib/seo";
 
 export const metadata = buildSubpageMetadata({
   title: "人才招聘",
-  description: "加入大连恒忆偶合器，与团队共同成长。",
+  description: "加入大连恒亿偶合器，与团队共同成长。",
   path: "/careers",
 });
 

@@ -23,6 +23,9 @@ export const tiaosuAdvantages = [
   },
 ];
 
+/** 型号说明附图：代号分段示意（public/types.png） */
+export const modelTypesDiagramImage = "/types.png";
+
 /** 型号说明：YO - T - D/G/F - 规格 */
 export const modelCodeLegend = [
   { code: "YO", desc: "液力偶合器" },
@@ -36,8 +39,8 @@ export const modelCodeLegend = [
 ];
 
 export const structureSection = {
-  crossSectionImage:
-    "https://storage.googleapis.com/uxpilot-auth.appspot.com/70cdf8ebca-7c419328273fa1fa701f.png",
+  /** 调速型液力偶合器内部结构剖视图（本地资源 public/structure.png） */
+  crossSectionImage: "/structure.png",
   companionTitle: "配套一览表",
   companionRows: [
     { item: "电动执行器", yotdg: "标准配备", yotf: "用户选配" },
@@ -90,6 +93,36 @@ export const yotgBlock = {
   ],
 };
 
+/** 固定箱体式 · 滑动轴承（参数表可按订货补充） */
+export const yotfBlock = {
+  title: "YOTF型",
+  subtitle: "固定箱体式 调速型液力偶合器 滑动轴承",
+  image: yotgBlock.image,
+  table: [] as {
+    model: string;
+    speed: string;
+    power: string;
+    weight: string;
+  }[],
+  placeholderNote:
+    "典型型号与参数可按工况与订货协议提供，详情请咨询技术部门。",
+};
+
+/** 除鳞泵专用系列 */
+export const yotfClBlock = {
+  title: "YOTFxxxCL型",
+  subtitle: "除鳞泵专用 调速型液力偶合器",
+  image: yotdBlock.image,
+  table: [] as {
+    model: string;
+    speed: string;
+    power: string;
+    weight: string;
+  }[],
+  placeholderNote:
+    "除鳞泵专用系列的具体型号、参数与图纸可按订货要求提供。",
+};
+
 export const yotgrBlock = {
   title: "YOTG…R型",
   subtitle: "固定箱体式 调速型液力偶合器 圆筒式",
@@ -110,7 +143,7 @@ export const yotgrBlock = {
 
 export const yoczBlock = {
   title: "YOCz型",
-  subtitle: "(齿轮增速型液力偶合器传动装置)",
+  subtitle: "齿轮增速型液力偶合器传动装置",
   description: "YOCz型（输入侧带增速齿轮的液力偶合器传动装置）",
   image:
     "https://storage.googleapis.com/uxpilot-auth.appspot.com/3f2bda5584-3dd55ed24828d56db630.png",
@@ -181,9 +214,9 @@ export const yoczBlock = {
 };
 
 export const yocjBlock = {
-  title: "YOCj型",
-  subtitle: "(齿轮减速型液力偶合器传动装置)",
-  description: "YOCj型（带减速齿轮的液力偶合器传动装置）",
+  title: "YOC型",
+  subtitle: "齿轮减速型液力偶合器传动装置",
+  description: "YOC型（带减速齿轮的液力偶合器传动装置，订货型号示例含 YOCJ 等代号）",
   images: [
     "https://storage.googleapis.com/uxpilot-auth.appspot.com/3f2bda5584-b8eab1447b2ac3326468.png",
     "https://storage.googleapis.com/uxpilot-auth.appspot.com/4df377b69b-19845bda206084f111f2.png",
@@ -281,3 +314,44 @@ export const yocjBlock = {
     },
   ],
 };
+
+/** 典型型号展示区块锚点导航（与页面分段 id 一致） */
+export const tiaosuTypicalModelNav = [
+  {
+    id: "model-yotd",
+    label: "YOTD型",
+    hint: "对开箱体式 · 滚动轴承",
+  },
+  {
+    id: "model-yotg",
+    label: "YOTG型",
+    hint: "固定箱体 · 滚动轴承",
+  },
+  {
+    id: "model-yotgr",
+    label: "YOTG…R型",
+    hint: "圆筒式",
+  },
+  {
+    id: "model-yotf",
+    label: "YOTF型",
+    hint: "固定箱体 · 滑动轴承",
+  },
+  {
+    id: "model-yotf-cl",
+    label: "YOTF…CL型",
+    hint: "除鳞泵专用",
+  },
+  {
+    id: "model-yocz",
+    label: "YOCz型",
+    hint: "齿轮增速传动装置",
+  },
+  {
+    id: "model-yoc",
+    label: "YOC型",
+    hint: "齿轮减速传动装置",
+  },
+] as const;
+
+export type TiaosuTypicalModelId = (typeof tiaosuTypicalModelNav)[number]["id"];
